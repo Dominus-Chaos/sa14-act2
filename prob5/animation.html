@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Animation Task</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="container">
+  <div id="box"></div>
+</div>
+
+<button id="control">Animate</button>
+
+<script>
+    const box = document.getElementById('box');
+    const controlBtn = document.getElementById('control');
+    let isAnimating = false;
+  
+    function animateBox() {
+      if (!isAnimating) {
+        isAnimating = true;
+        box.style.transform = 'translateX(300px)'; // Move to the right
+      } else {
+        isAnimating = false;
+        box.style.transform = 'translateX(0)'; // Move back to starting position
+      }
+    }
+  
+    controlBtn.addEventListener('click', animateBox);
+  </script>
+
+</body>
+</html>
