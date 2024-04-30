@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+       <h2>Registration</h2> 
+       <form id="SignUpForm" onsubmit="return ValidateForm()">
+        Username: <input type="text" id="username">
+        Email: <input type="text" id="email">
+        Password: <input type="text" id="password">
+        <input type="submit" value="Submit">
+       </form>
+       <script>
+        function ValidateForm() {
+            let isValid = true
+            let userName = document.forms["SignUpForm"]["username"].value;
+            if (userName.length < 6){
+                alert("Username must be 6 characters long");
+                isValid = false;
+
+            }
+            
+            let eMail = document.forms["SignUpForm"]["email"].value;
+            var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!eMail.match(re)){
+                alert("Please enter a valid email");
+                isValid = false;
+            }
+
+            let passWord = document.forms["SignUpForm"]["password"].value;
+            var cap = /[A-Z]/ 
+            var num = /[0-9]/
+            if (!(cap.test(passWord)) || !(num.test(passWord)) || passWord.length < 8){
+                alert("Please enter a password that is at least 8 characters long with at least one capital letter, one number")
+                isValid = false;
+            }
+
+            if (isValid){
+                alert("Registration successful!")
+                form.reset()
+            }
+        }
+       </script>
+    </body>
+</html>
